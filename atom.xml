@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-03T05:41:49.000Z</updated>
+  <updated>2016-06-06T07:15:48.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/05/31/map-flatmap-filter-reduce/"/>
     <id>http://yoursite.com/2016/05/31/map-flatmap-filter-reduce/</id>
     <published>2016-05-31T09:39:00.000Z</published>
-    <updated>2016-06-03T05:41:49.000Z</updated>
+    <updated>2016-06-06T07:15:48.000Z</updated>
     
     <content type="html">&lt;p&gt;此文初始发布在&lt;a href=&quot;http://www.jianshu.com/users/aab9fb1728aa/latest_articles&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;我的简书&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;Swift是支持一门函数式编程的语言，拥有&lt;code&gt;Map&lt;/code&gt;，&lt;code&gt;FlatMap&lt;/code&gt;,&lt;code&gt;Filter&lt;/code&gt;,&lt;code&gt;Reduce&lt;/code&gt;针对集合类型的操作。在使用Objective-C开发时，如果你没接触过函数式编程，那你可能没听说过这些名词，希望此篇文章可以帮助你了解Swift中的&lt;code&gt;Map&lt;/code&gt;，&lt;code&gt;FlatMap&lt;/code&gt;,&lt;code&gt;Filter&lt;/code&gt;,&lt;code&gt;Reduce&lt;/code&gt;。&lt;/p&gt;
@@ -74,6 +74,8 @@
     </summary>
     
     
+      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
+    
   </entry>
   
   <entry>
@@ -81,7 +83,7 @@
     <link href="http://yoursite.com/2016/05/26/unwarp-multi-optionals/"/>
     <id>http://yoursite.com/2016/05/26/unwarp-multi-optionals/</id>
     <published>2016-05-26T12:02:00.000Z</published>
-    <updated>2016-06-03T05:41:56.000Z</updated>
+    <updated>2016-06-06T07:16:43.000Z</updated>
     
     <content type="html">&lt;p&gt;话不多说，直接上代码&lt;/p&gt;
 &lt;h3 id=&quot;方式1：&quot;&gt;&lt;a href=&quot;#方式1：&quot; class=&quot;headerlink&quot; title=&quot;方式1：&quot;&gt;&lt;/a&gt;方式1：&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var optional1: String?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var optianal2: String?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if let optional1 = optional1, optianal2 = optianal2 &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -101,6 +103,8 @@
     </summary>
     
     
+      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
+    
   </entry>
   
   <entry>
@@ -108,7 +112,7 @@
     <link href="http://yoursite.com/2016/05/11/storyboard-injection/"/>
     <id>http://yoursite.com/2016/05/11/storyboard-injection/</id>
     <published>2016-05-11T03:31:00.000Z</published>
-    <updated>2016-06-03T05:42:06.000Z</updated>
+    <updated>2016-06-06T07:15:33.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/wuleijun/SwiftInjectDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Demo下载&lt;/a&gt;&lt;br&gt;我们都知道在使用Storyboard时，实现依赖注入总是有点不优雅，让我们先来看看在&lt;strong&gt;Objective-C&lt;/strong&gt;时如何使用：&lt;/p&gt;
 &lt;h3 id=&quot;Objective-C&quot;&gt;&lt;a href=&quot;#Objective-C&quot; class=&quot;headerlink&quot; title=&quot;Objective-C&quot;&gt;&lt;/a&gt;Objective-C&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//In RJDemoViewController.m&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void)setDependenciesViewModel:(RJDemoViewModel *)viewModel delegate:(id &amp;lt;RJDemoViewControllerDelegate&amp;gt;)delegate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    self.viewModel = viewModel;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    self.delegate = delegate;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void)assertDependencies&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // 依赖的对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    NSParameterAssert(self.viewModel &amp;amp;&amp;amp;self.delegate);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void)viewDidLoad&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [super viewDidLoad];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [self assertDependencies];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -127,6 +131,8 @@
     
     </summary>
     
+    
+      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
     
   </entry>
   
