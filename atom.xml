@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-06T07:15:48.000Z</updated>
+  <updated>2016-09-19T09:39:20.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xcode8兼容Swift2.3项目（Optionals）</title>
+    <link href="http://yoursite.com/2016/09/19/xcode8swift2.3/"/>
+    <id>http://yoursite.com/2016/09/19/xcode8swift2.3/</id>
+    <published>2016-09-19T12:02:00.000Z</published>
+    <updated>2016-09-19T09:39:20.000Z</updated>
+    
+    <content type="html">&lt;p&gt;如果你最近升级了Xcode8，一跑&lt;code&gt;Swift2.3&lt;/code&gt;的项目，毫无意外地，都是错误。希望看完这篇文章，可以帮你顺利跑起来。&lt;/p&gt;
+&lt;p&gt;Xcode8同时支持&lt;code&gt;Swift2.3&lt;/code&gt;与&lt;code&gt;Swift3.0&lt;/code&gt;,你可以自由选择使用其一来开发。&lt;code&gt;Swift3.0&lt;/code&gt;刚刚出来不久(当前2016-09-19),公司项目使用的部分第三方库还没有&lt;code&gt;Swift3.0&lt;/code&gt;的版本，保险起见，还是决定先使用&lt;code&gt;Swift2.3&lt;/code&gt;。Let’s begin!&lt;/p&gt;
+&lt;p&gt;##Step1:&lt;br&gt;&lt;code&gt;选择项目-&amp;gt;Build Settings-&amp;gt;搜索‘Swift_version’，&lt;/code&gt;这个选项顾名思义说的就是是否使用以前的&lt;code&gt;Swift&lt;/code&gt;版本，将其改为&lt;code&gt;YES&lt;/code&gt;。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1869329-c463b033f013f157.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这样以后呐，我们项目自己的代码指定的就是&lt;code&gt;Swift2.3了&lt;/code&gt;。&lt;br&gt;但是我们的项目是用&lt;code&gt;cocoapods&lt;/code&gt;来管理第三方库的，如果现在直接跑起来，你会发现类似下面的错误：&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1869329-f700e9e082c5aaf9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;br&gt;我们还需为pods管理的target设置&lt;code&gt;Swift&lt;/code&gt;版本.&lt;/p&gt;
+&lt;p&gt;##Step2:&lt;br&gt;在项目里找到&lt;code&gt;Pods&lt;/code&gt;,一个个将报错的target的&lt;code&gt;Use Legacy Swift Language Version&lt;/code&gt;的值设为&lt;code&gt;YES&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1869329-b8f4ee15a836ba0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;br&gt;当然一个个设置嫌慢的话，可以改一下Podfile：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;source &amp;apos;https://github.com/CocoaPods/Specs.git&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;platform :ios, &amp;apos;8.0&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;use_frameworks!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;def pods&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    pod &amp;apos;Alamofire&amp;apos;, :git =&amp;gt; &amp;apos;https://github.com/Alamofire/Alamofire.git&amp;apos;, :tag =&amp;gt; &amp;apos;3.5.0&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    pod &amp;apos;Kingfisher&amp;apos;, &amp;apos;~&amp;gt; 2.5.1&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;target &amp;apos;your-target&amp;apos; do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    pods&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;post_install do |installer|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    installer.pods_project.targets.each do |target|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        target.build_configurations.each do |config|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            config.build_settings[&amp;apos;SWIFT_VERSION&amp;apos;] = &amp;apos;2.3&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        end&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注&lt;/strong&gt;：有些第三库库部分已经有&lt;code&gt;Swift3&lt;/code&gt;的版本，如&lt;code&gt;Alamofire，Kingfisher&lt;/code&gt;，在pods里请设置好对应的版本，否则可能还是会出错。&lt;br&gt;至此，你的&lt;code&gt;Swift2.3&lt;/code&gt;的项目应该可以跑起来了。&lt;/p&gt;
+&lt;p&gt;##TIPS：&lt;/p&gt;
+&lt;p&gt;###一：&lt;br&gt;项目跑起来你会发现一堆log，只需将&lt;code&gt;OS_ACTIVITY_MODE&lt;/code&gt;设为&lt;code&gt;Disable&lt;/code&gt;即可,如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1869329-f5734ae3414a0eef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果你最近升级了Xcode8，一跑&lt;code&gt;Swift2.3&lt;/code&gt;的项目，毫无意外地，都是错误。希望看完这篇文章，可以帮你顺利跑起来。&lt;/p&gt;
+&lt;p&gt;Xcode8同时支持&lt;code&gt;Swift2.3&lt;/code&gt;与&lt;code&gt;Swift3.0&lt;/code&gt;,你可以
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift：Map，FlatMap，Filter，Reduce指南</title>
