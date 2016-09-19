@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>Xcode8兼容Swift2.3项目（Optionals） | rayjuneWu</title>
+    <title>Xcode8兼容Swift2.3项目 | rayjuneWu</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="嗨，我是吴蕾君 (@rayjuneWu)，一名来自中国杭州的 iOS 开发者。">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Xcode8兼容Swift2.3项目（Optionals） | rayjuneWu">
+    <meta name="twitter:title" content="Xcode8兼容Swift2.3项目 | rayjuneWu">
     <meta name="twitter:description" content="嗨，我是吴蕾君 (@rayjuneWu)，一名来自中国杭州的 iOS 开发者。">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Xcode8兼容Swift2.3项目（Optionals） | rayjuneWu">
+    <meta property="og:title" content="Xcode8兼容Swift2.3项目 | rayjuneWu">
     <meta property="og:description" content="嗨，我是吴蕾君 (@rayjuneWu)，一名来自中国杭州的 iOS 开发者。">
 
     
@@ -161,19 +161,18 @@ var _hmt = _hmt || [];
   <a class="tag-link" href="/tags/Swift/">Swift</a>
 </span>
     </div>
-    <h1 class="post-title">Xcode8兼容Swift2.3项目（Optionals）</h1>
+    <h1 class="post-title">Xcode8兼容Swift2.3项目</h1>
   </header>
 
   <section class="post">
     <p>如果你最近升级了Xcode8，一跑<code>Swift2.3</code>的项目，毫无意外地，都是错误。希望看完这篇文章，可以帮你顺利跑起来。</p>
 <p>Xcode8同时支持<code>Swift2.3</code>与<code>Swift3.0</code>,你可以自由选择使用其一来开发。<code>Swift3.0</code>刚刚出来不久(当前2016-09-19),公司项目使用的部分第三方库还没有<code>Swift3.0</code>的版本，保险起见，还是决定先使用<code>Swift2.3</code>。Let’s begin!</p>
-<p>##Step1:<br><code>选择项目-&gt;Build Settings-&gt;搜索‘Swift_version’，</code>这个选项顾名思义说的就是是否使用以前的<code>Swift</code>版本，将其改为<code>YES</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1869329-c463b033f013f157.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<h2 id="Step1"><a href="#Step1" class="headerlink" title="Step1:"></a>Step1:</h2><p><code>选择项目-&gt;Build Settings-&gt;搜索‘Swift_version’，</code>这个选项顾名思义说的就是是否使用以前的<code>Swift</code>版本，将其改为<code>YES</code>。<br><img src="http://upload-images.jianshu.io/upload_images/1869329-c463b033f013f157.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <p>这样以后呐，我们项目自己的代码指定的就是<code>Swift2.3了</code>。<br>但是我们的项目是用<code>cocoapods</code>来管理第三方库的，如果现在直接跑起来，你会发现类似下面的错误：<br><img src="http://upload-images.jianshu.io/upload_images/1869329-f700e9e082c5aaf9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>我们还需为pods管理的target设置<code>Swift</code>版本.</p>
-<p>##Step2:<br>在项目里找到<code>Pods</code>,一个个将报错的target的<code>Use Legacy Swift Language Version</code>的值设为<code>YES</code>:</p>
+<h2 id="Step2"><a href="#Step2" class="headerlink" title="Step2:"></a>Step2:</h2><p>在项目里找到<code>Pods</code>,一个个将报错的target的<code>Use Legacy Swift Language Version</code>的值设为<code>YES</code>:</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1869329-b8f4ee15a836ba0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>当然一个个设置嫌慢的话，可以改一下Podfile：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://github.com/CocoaPods/Specs.git&apos;</span><br><span class="line">platform :ios, &apos;8.0&apos;</span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">def pods</span><br><span class="line">    pod &apos;Alamofire&apos;, :git =&gt; &apos;https://github.com/Alamofire/Alamofire.git&apos;, :tag =&gt; &apos;3.5.0&apos;</span><br><span class="line">    pod &apos;Kingfisher&apos;, &apos;~&gt; 2.5.1&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">target &apos;your-target&apos; do</span><br><span class="line">    pods</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">post_install do |installer|</span><br><span class="line">    installer.pods_project.targets.each do |target|</span><br><span class="line">        target.build_configurations.each do |config|</span><br><span class="line">            config.build_settings[&apos;SWIFT_VERSION&apos;] = &apos;2.3&apos;</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
 <p><strong>注</strong>：有些第三库库部分已经有<code>Swift3</code>的版本，如<code>Alamofire，Kingfisher</code>，在pods里请设置好对应的版本，否则可能还是会出错。<br>至此，你的<code>Swift2.3</code>的项目应该可以跑起来了。</p>
-<p>##TIPS：</p>
-<p>###一：<br>项目跑起来你会发现一堆log，只需将<code>OS_ACTIVITY_MODE</code>设为<code>Disable</code>即可,如图：</p>
+<h2 id="TIPS："><a href="#TIPS：" class="headerlink" title="TIPS："></a>TIPS：</h2><h3 id="一："><a href="#一：" class="headerlink" title="一："></a>一：</h3><p>项目跑起来你会发现一堆log，只需将<code>OS_ACTIVITY_MODE</code>设为<code>Disable</code>即可,如图：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1869329-f5734ae3414a0eef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 
   </section>
@@ -212,7 +211,7 @@ Swift是支持一门函数式编程的语言，拥有Map，FlatMap,Filter,Reduce
       var disqus_shortname = 'rayjune'; 
       
   var disqus_identifier = '/2016/09/19/xcode8swift2.3/';
-  var disqus_title = 'Xcode8兼容Swift2.3项目（Optionals）';
+  var disqus_title = 'Xcode8兼容Swift2.3项目';
   var disqus_url = 'http://yoursite.com/2016/09/19/xcode8swift2.3/';
   
 
